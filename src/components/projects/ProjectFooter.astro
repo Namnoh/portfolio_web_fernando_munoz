@@ -1,0 +1,32 @@
+---
+import GitHubIcon from '@components/icons/GitHubIcon.astro';
+import LinkIcon from '@components/icons/LinkIcon.astro';
+import SocialPill from '@components/SocialPill.astro';
+
+interface Props {
+    title: string;
+    github?: string;
+    link?: string;
+};
+
+const { title, github, link } = Astro.props;
+---
+
+{
+    github || link ? (
+        <footer class="inline-flex gap-x-5 mb-5">
+            {github && (
+                <SocialPill href={github} aria-label={`Enlace a código del proyecto: ${title}`}>
+                    <GitHubIcon class="size-5 md:size-6 text-color"/>
+                    Código
+                </SocialPill>
+            )}
+            {link && (
+                <SocialPill href={link} aria-label={`Enlace a despliegue del proyecto: ${title}`}>
+                    <LinkIcon class="size-5 md:size-6 text-color"/>
+                    Ver Proyecto
+                </SocialPill>
+            )}
+        </footer>
+    ) : ''
+}

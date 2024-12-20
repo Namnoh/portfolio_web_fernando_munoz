@@ -1,11 +1,94 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Badge from '@components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LinkedInIcon from '@components/icons/LinkedInIcon.astro';
+import GitHubIcon from '@components/icons/GitHubIcon.astro';
+import MailIcon from '@components/icons/MailIcon.astro';
+import SocialPill from '@components/SocialPill.astro';
+import Experience from '@components/experience/Experience.astro';
+import SectionContainer from '@components/SectionContainer.astro';
+import BriefCaseIcon from '@components/icons/BriefCaseIcon.astro';
+import CodeIcon from '@components/icons/CodeIcon.astro';
+import Projects from '@components/projects/Projects.astro';
+import AboutMe from '@components/AboutMe.astro';
+import Person from '@components/icons/Person.astro';
+import ContactMe from '@components/ContactMe.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+	title="Portfolio - Fernando Muñoz | Desarrollador y Programador Web Full Stack"
+	description="Contrata a Fernando Muñoz para crear tu aplicación web o móvil. Desarrollador Web Full Stack especializado en tecnologías JavaScript."
+>
+	<main class="px-5 md:px-10 lg:px-0">
+		<SectionContainer class="pt-32 md:pt-44 pb-28">
+			<div class="flex gap-x-5 items-center mb-10">
+				<img
+					src="/imgs/profile-picture-square.webp"
+					alt="Fernando Muñoz photo."
+					class="rounded-3xl size-40 md:size-48 lg:size-52"
+				/>
+				<div class="flex flex-col gap-y-2">
+					<Badge>Disponible para Trabajar</Badge>
+					<h1 class="text-white text-2xl md:text-4xl lg:text-5xl font-medium text-pretty">
+						<span class="font-bold block">Fernando Muñoz</span>
+						<span class="text-tertiary font-bold block md:inline">Desarrollador</span>
+						<span class="text-tertiary font-bold block md:inline">Full Stack</span>
+					</h1>
+				</div>
+			</div>
+			<h2 class="text-xl md:text-2xl text-wrap max-w-[700px]">
+				<span class="opacity-80">Egresado de </span><span class="text-mainBg">Ingeniería en Informática</span>
+				<span class="opacity-80">, especializado en frameworks </span><span class="text-mainBg">JavaScript</span>
+				<span class="opacity-80">, con experiencia en </span><span class="text-mainBg">React, Node.js y más.</span>
+			</h2>
+			<!-- TODO: Llevar lo siguiente a descripción de About Me -->
+			<!-- <h2 class="text-xl md:text-2xl opacity-80 text-wrap max-w-[700px]">
+				Egresado de Ingeniería en Informática, especializado en tecnologías JavaScript, con experiencia en React, Node.js y más. Enfoque en la creación de aplicaciones escalables y optimización de la experiencia de usuario.
+			</h2> -->
+			<nav>
+				<ul class="flex flex-wrap gap-5 mt-8">
+					<li>
+						<SocialPill href="https://www.linkedin.com/in/fernandomunozfrias" aria-label="Enlace a LinkedIn">
+							<LinkedInIcon class="size-4 md:size-5 lg:size-6 text-color"/>
+							LinkedIn
+						</SocialPill>
+					</li>
+					<li>
+						<SocialPill href="https://github.com/Namnoh" aria-label="Enlace a GitHub">
+							<GitHubIcon class="size-4 md:size-5 lg:size-6 text-color"/>
+							GitHub
+						</SocialPill>
+					</li>
+					<li>
+						<SocialPill href="mailto:ferm.programmer@gmail.com" aria-label="Enviar Correo">
+							<MailIcon class="size-4 md:size-5 lg:size-6 text-color"/>
+							ferm.programmer@gmail.com
+						</SocialPill>
+					</li>
+				</ul>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experience">
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5"><BriefCaseIcon class="size-8"/> Experiencia Laboral</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="projects" class='mt-28'>
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5"><CodeIcon class="size-8"/> Proyectos</h2>
+			<Projects />
+		</SectionContainer>
+		
+		<!-- TODO: Hacer formulario de contacto -->
+		<SectionContainer id="aboutMe" class='mt-28'>
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5"><Person class="size-8"/> Sobre Mí</h2>
+			<AboutMe />
+		</SectionContainer>
+
+		<!-- TODO: Hacer formulario de contacto -->
+		<SectionContainer id="contactMe" class='mt-28'>
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5"><MailIcon class="size-8"/> Contáctame</h2>
+			<ContactMe />
+		</SectionContainer>
+	</main>
 </Layout>

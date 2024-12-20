@@ -1,0 +1,70 @@
+---
+import NextjsIcon from "@components/icons/technologies/NextjsIcon.astro";
+import ReactIcon from "@components/icons/technologies/ReactIcon.astro";
+import ProjectFooter from "./ProjectFooter.astro";
+
+const TAGS = {
+    NEXT: {
+        name: 'Next.js',
+        class: 'bg-black text-white',
+        icon: NextjsIcon
+    },
+    REACT: {
+        name: 'React',
+        class: 'bg-[#00d8ff]/30 text-white',
+        icon: ReactIcon
+    }
+};
+
+interface TagsInterface {
+    name: string;
+    class: string;
+    icon: any;
+}
+
+interface ProjectsInterface {
+    title: string,
+    tags: TagsInterface[];
+    description: string,
+    github?: string,
+    link?: string,
+    img: string
+}
+
+const PROJECTS = [
+    { 
+        title: 'Señalando Un Futuro - Aprende Lengua de Señas Chilena con IA',
+        tags: [TAGS.NEXT, TAGS.REACT],
+        description: 'Aplicación web que busca el aprendizaje y reforzamiento de la Lengua de Señas Chilena (LSCh), mediante un sistema donde el usuario tendrá que ir avanzando por niveles, realizando señas y nuestra IA (Inteligencia Artificial) irá retroalimentando al mismo usuario.',
+        github: 'https://github.com/BytesNBitsCL',
+        link: 'https://senalando-un-futuro.vercel.app/',
+        img: 'imgs/projects/SenalandoUnFuturo-portfolio.webp'
+    }
+];
+---
+
+{
+    PROJECTS.map(({title, tags, description, github, link, img }: ProjectsInterface) => (
+        <article class="group flex flex-col lg:flex-row-reverse lg:gap-10">
+            <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-5">{title}</h3>
+                <ul class="flex gap-5 flex-row mb-5">
+                    {tags.map(tag => (
+                        <li>
+                            <span class={`flex gap-x-2 items-center rounded-full text-sm ${tag.class} py-2 px-3`}>
+                                <tag.icon class="size-4"/> {tag.name}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+                <p class="text-lg mb-5 text-pretty lg:text-none opacity-80">{description}</p>
+                <ProjectFooter title={title} github={github} link={link}/>
+            </div>
+            <div class="w-full flex-1">
+                <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
+                    <img alt={`Imagen del proyecto: ${img}`} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={img} />
+                </div>
+            </div>
+        </article>
+    ))
+}

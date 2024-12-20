@@ -1,0 +1,35 @@
+---
+import Chip from "./Chip.astro";
+import { NAV_LINKS } from "src/constants";
+---
+
+<header class="fixed top-0 z-10 flex justify-center items-center py-5 w-full mx-auto">
+    <nav class="flex flex-row text-sm md:text-base gap-x-5 md:gap-x-10 rounded-full py-1 px-3">
+        {
+            NAV_LINKS.map(link => (
+                <Chip href={link.url} aria-label={link.label} >{link.title}</Chip>
+            ))
+        }
+    </nav>
+</header>
+
+<style>
+    nav {
+        animation: nav-shadow 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 80px;
+    }
+    
+    nav {
+        @apply dark:bg-black/85 bg-white/50 opacity-90;
+    }
+    
+    @keyframes nav-shadow {
+        0% {
+            @apply dark:bg-gray-800/0 bg-white/0;
+        }
+        to {
+            @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+        }
+    }
+</style>

@@ -1,0 +1,38 @@
+---
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import MailIcon from "./icons/MailIcon.astro";
+---
+
+<article class="flex flex-col md:flex-row gap-5">
+    <h3 class="flex-1 text-2xl font-bold">Juntos podemos construir algo increíble. <span class="text-mainBg">¡Contacta conmigo!</span></h3>
+    <ul class="flex-1 flex flex-col gap-5 text-xl">
+        <li class="flex flex-col group hover:scale-[1.02] transition">
+            <a href="https://www.linkedin.com/in/fernandomunozfrias" aria-label="Enlace a LinkedIn" target="_blank" rel="noopener noreferrer">
+                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
+                    <LinkedInIcon class="size-4 md:size-5 lg:size-6 text-color"/>
+                    LinkedIn.
+                </h4>
+                <p class="text-lg opacity-80">Aquí también encontrarás más información sobre mí, así como publicaciones y certificados.</p>
+            </a>
+        </li>
+        <li class="flex flex-col group hover:scale-[1.02] transition">
+            <a href="https://github.com/Namnoh" aria-label="Enlace a GitHub" target="_blank" rel="noopener noreferrer">
+                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
+                    <GitHubIcon class="size-4 md:size-5 lg:size-6 text-color"/>
+                    GitHub
+                </h4>
+                <p class="text-lg opacity-80">Acá podrás ver más sobre mis proyectos y también sus códigos.</p>
+            </a>
+        </li>
+        <li class="flex flex-col group hover:scale-[1.02] transition">
+            <a href="mailto:ferm.programmer@gmail.com" aria-label="Enviar a Correo" target="_blank" rel="noopener noreferrer">
+                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
+                    <MailIcon class="size-4 md:size-5 lg:size-6 text-color"/>
+                    ferm.programmer@gmail.com
+                </h4>
+                <p class="text-lg opacity-80">¡Y no dudes en enviarme un correo! Responderé a la brevedad :) .</p>
+            </a>
+        </li>
+    </ul>
+</article>
