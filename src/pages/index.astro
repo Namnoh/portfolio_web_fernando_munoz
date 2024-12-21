@@ -32,7 +32,7 @@ import ContactMe from '@components/ContactMe.astro';
 					<h1 class="text-white text-2xl md:text-4xl lg:text-5xl font-medium text-pretty">
 						<span class="font-bold block">Fernando Muñoz</span>
 						<span class="text-tertiary font-bold block md:inline">Desarrollador</span>
-						<span class="text-tertiary font-bold block md:inline">Full Stack</span>
+						<span class="text-tertiary font-bold block md:inline writingText"></span>
 					</h1>
 				</div>
 			</div>
@@ -41,10 +41,6 @@ import ContactMe from '@components/ContactMe.astro';
 				<span class="opacity-80">, especializado en frameworks </span><span class="text-mainBg">JavaScript</span>
 				<span class="opacity-80">, con experiencia en </span><span class="text-mainBg">React, Node.js y más.</span>
 			</h2>
-			<!-- TODO: Llevar lo siguiente a descripción de About Me -->
-			<!-- <h2 class="text-xl md:text-2xl opacity-80 text-wrap max-w-[700px]">
-				Egresado de Ingeniería en Informática, especializado en tecnologías JavaScript, con experiencia en React, Node.js y más. Enfoque en la creación de aplicaciones escalables y optimización de la experiencia de usuario.
-			</h2> -->
 			<nav>
 				<ul class="flex flex-wrap gap-5 mt-8">
 					<li>
@@ -79,7 +75,6 @@ import ContactMe from '@components/ContactMe.astro';
 			<Projects />
 		</SectionContainer>
 		
-		<!-- TODO: Hacer formulario de contacto -->
 		<SectionContainer id="aboutMe" class='mt-28'>
 			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5"><Person class="size-8"/> Sobre Mí</h2>
 			<AboutMe />
@@ -92,3 +87,15 @@ import ContactMe from '@components/ContactMe.astro';
 		</SectionContainer>
 	</main>
 </Layout>
+
+<script>
+	import Typed from 'typed.js';
+	const typed = new Typed(".writingText", {
+		strings : ["Full Stack", "React", "Next.js", "Node.js", "Nest.js", "Full Stack"],
+		startDelay : 1000,
+		typeSpeed : 150,
+		backSpeed : 100,
+		backDelay : 1000,
+		loop : false,
+	});
+</script>

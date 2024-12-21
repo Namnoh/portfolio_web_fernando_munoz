@@ -8,7 +8,7 @@ export default {
 				primary: '#00712d',
 				secondary: '#ff9100',
 				tertiary: '#d5ed9f',
-				mainBg: '#ffc837',
+				mainBg: '#ffcf52',
 				secondaryBg: '#ffe0b2'
 			}
 		},
