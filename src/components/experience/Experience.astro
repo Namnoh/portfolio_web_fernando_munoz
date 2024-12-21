@@ -1,23 +1,19 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+import { getCollection } from 'astro:content';
 
-const EXPERIENCE = [
-    {
-        title:'Desarrollador Full Stack (Contrato de Prácticas)',
-        company: 'Caja Los Andes',
-        date: 'ago. 2024 - nov. 2024',
-        description: 'Desarrollo Full Stack de Web en el Equipo de Plataformas Ejecutivo y Contactabilidad en la Gerencia Corporativa De Tecnología, donde desarrollé y cree código de calidad en el frontend y backend, así como en consultas SQL. También fui el principal responsable de la migración del sistema de Angular 14 a la versión 18.',
-        link: '#'
-    }
-]
+const EXPERIENCES = await getCollection("experience");
 ---
 
 <ol class="relative border-s border-gray-600 dark:border-white ml-3.5">                  
     {
-        EXPERIENCE.map(experience => (
-            <li class="mb-10 ms-4">
-                <ExperienceItem {... experience}/>
-            </li>
-        ))
+        EXPERIENCES.map(async (experience) => {
+            const { data } = experience;
+            return (
+                <li class="mb-10 ms-4">
+                    <ExperienceItem {...data} experience={experience} />
+                </li>
+            );
+        })
     }
 </ol>
