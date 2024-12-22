@@ -1,15 +1,20 @@
 ---
 import GitHubIcon from "./icons/GitHubIcon.astro";
+import HandClickIcon from "./icons/HandClickIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
 import MailIcon from "./icons/MailIcon.astro";
 ---
 
 <article class="flex flex-col md:flex-row gap-5">
-    <h3 class="flex-1 text-2xl font-bold">Juntos podemos construir algo increíble. <span class="text-mainBg">¡Contacta conmigo!</span></h3>
+    <h3 class="flex-1 text-2xl font-bold">
+            Juntos podemos construir algo increíble.
+            <span class="text-mainBg">¡Contacta conmigo!</span>
+            <HandClickIcon class="size-6 lg:size-7 text-color inline"/>
+    </h3>
     <ul class="flex-1 flex flex-col gap-5 text-xl">
         <li class="flex flex-col group hover:scale-[1.02] transition">
             <a href="https://www.linkedin.com/in/fernandomunozfrias" aria-label="Enlace a LinkedIn" target="_blank" rel="noopener noreferrer">
-                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
+                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg group-focus:underline group-focus:decoration-mainBg underline-offset-4 transition">
                     <LinkedInIcon class="size-4 md:size-5 lg:size-6 text-color"/>
                     LinkedIn.
                 </h4>

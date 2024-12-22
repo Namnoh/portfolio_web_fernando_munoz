@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Badge from '@components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
 import LinkedInIcon from '@components/icons/LinkedInIcon.astro';
@@ -22,10 +23,13 @@ import ContactMe from '@components/ContactMe.astro';
 	<main class="px-5 md:px-10 lg:px-0">
 		<SectionContainer class="pt-32 md:pt-44 pb-28">
 			<div class="flex gap-x-5 items-center mb-10">
-				<img
+				<Image
 					src="/imgs/profile-picture-square.webp"
-					alt="Fernando Muñoz photo."
+					alt="Fernando Muñoz."
 					class="rounded-3xl size-40 md:size-48 lg:size-52"
+					loading="eager"
+					width={100}
+					height={100}
 				/>
 				<div class="flex flex-col gap-y-2">
 					<Badge>Disponible para Trabajar</Badge>

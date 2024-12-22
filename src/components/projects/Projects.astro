@@ -1,5 +1,6 @@
 ---
-import { TAGS, type Tag } from "src/constants";
+import { Image } from 'astro:assets';
+import { TAGS } from "src/constants";
 import ProjectFooter from "./ProjectFooter.astro";
 import { getCollection, render } from 'astro:content';
 
@@ -35,7 +36,7 @@ const PROJECTS = await getCollection("projects");
                 </div>
                 <div class="w-full flex-1">
                     <picture class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
-                        <img alt={`Imagen del proyecto: ${img}`} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={img} />
+                        <Image src={img} alt={`Imagen del proyecto: ${img}`} width={100} height={100} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" />
                     </picture>
                 </div>
             </article>
