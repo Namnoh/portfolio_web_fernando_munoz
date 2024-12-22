@@ -8,7 +8,13 @@ import { NAV_LINKS } from "src/constants";
             {
                 NAV_LINKS.map(link => (
                     <li>
-                        <a href={link.url} aria-label={link.label} class="opacity-80 hover:text-mainBg hover:opacity-100 hover:scale-110 transition">{link.title}</a>
+                        <a
+                            href={link.url}
+                            aria-label={link.label}
+                            class="opacity-80 hover:text-mainBg hover:opacity-100 hover:scale-110 focus:text-mainBg focus:opacity-100 focus:outline focus:outline-2 outline-mainBg focus:rounded-full focus:p-1 transition"
+                        >
+                            {link.title}
+                        </a>
                     </li>
                 ))
             }
