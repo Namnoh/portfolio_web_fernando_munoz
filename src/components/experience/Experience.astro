@@ -7,7 +7,7 @@ const EXPERIENCES = await getCollection("experience");
 
 <ol class="relative border-s border-gray-600 dark:border-white ml-3.5">                  
     {
-        EXPERIENCES.map(async (experience) => {
+        EXPERIENCES.map( (experience) => {
             const { data } = experience;
             return (
                 <li class="mb-10 ms-4">
