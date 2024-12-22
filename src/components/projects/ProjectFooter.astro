@@ -1,30 +1,38 @@
 ---
 import GitHubIcon from '@components/icons/GitHubIcon.astro';
 import LinkIcon from '@components/icons/LinkIcon.astro';
+import VideoYTIcon from '@components/icons/VideoYTIcon.astro';
 import SocialPill from '@components/SocialPill.astro';
 
 interface Props {
     title: string;
     github?: string;
     link?: string;
+    video?: string;
 };
 
-const { title, github, link } = Astro.props;
+const { title, github, link, video } = Astro.props;
 ---
 
 {
     github || link ? (
-        <footer class="inline-flex gap-x-5 mb-5">
-            {github && (
+        <footer class="inline-flex flex-wrap gap-5 mb-5">
+            { github && (
                 <SocialPill href={github} aria-label={`Enlace a código del proyecto: ${title}`}>
                     <GitHubIcon class="size-5 md:size-6 text-color"/>
                     Código
                 </SocialPill>
             )}
-            {link && (
+            { link && (
                 <SocialPill href={link} aria-label={`Enlace a despliegue del proyecto: ${title}`}>
                     <LinkIcon class="size-5 md:size-6 text-color"/>
-                    Ver Proyecto
+                    Ver más
+                </SocialPill>
+            )}
+            { video && (
+                <SocialPill href={video} aria-label={`Enlace video del proyecto: ${title}`}>
+                    <VideoYTIcon class="size-5 md:size-6 text-color"/>
+                    Video
                 </SocialPill>
             )}
         </footer>

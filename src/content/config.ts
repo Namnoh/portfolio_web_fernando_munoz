@@ -19,6 +19,7 @@ const projects = defineCollection({
         github: z.string().optional(),
         link: z.string().optional(),
         img: z.string(),
+        video: z.string().optional(),
     })
 });
 

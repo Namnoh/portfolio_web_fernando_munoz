@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { TAGS } from "src/constants";
 import ProjectFooter from "./ProjectFooter.astro";
 import { getCollection, render } from 'astro:content';
+import Tag from '@components/Tag.astro';
 
 const PROJECTS = await getCollection("projects");
 ---
@@ -10,21 +11,21 @@ const PROJECTS = await getCollection("projects");
 {
     PROJECTS.map(async (project) => {
         const { data } = project;
-        const { title, tags, github, link, img } = data;
+        const { title, tags, github, link, img, video } = data;
         const { Content } = await render(project);
 
         return (
-            <article class="group flex flex-col lg:flex-row-reverse lg:gap-10">
+            <article class="group flex flex-col lg:flex-row-reverse lg:gap-10 lg:items-center">
                 <div class="flex-1">
                     <h3 class="text-2xl font-semibold mb-5 text-tertiary">{title}</h3>
-                    <ul class="flex gap-5 flex-row mb-5">
+                    <ul class="flex flex-wrap gap-5 flex-row mb-5">
                         {tags.map(t => {
                             const tag = TAGS[t]
                             return (
                                 <li>
-                                    <span class={`flex gap-x-2 items-center rounded-full text-sm ${tag.class} py-2 px-3`}>
-                                        <tag.icon class="size-4"/> {tag.name}
-                                    </span>
+                                    <Tag class={tag.class}>
+                                        <tag.icon class="size-5"/> {tag.name}
+                                    </Tag>
                                 </li>
                             )}
                         )}
@@ -32,7 +33,7 @@ const PROJECTS = await getCollection("projects");
                     <div class="text-lg mb-5 text-pretty lg:text-none opacity-80">
                         <Content />
                     </div>
-                    <ProjectFooter title={title} github={github} link={link}/>
+                    <ProjectFooter title={title} github={github} link={link} video={video}/>
                 </div>
                 <div class="w-full flex-1">
                     <picture class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl">
