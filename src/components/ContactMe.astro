@@ -1,8 +1,6 @@
 ---
-import GitHubIcon from "./icons/GitHubIcon.astro";
 import HandClickIcon from "./icons/HandClickIcon.astro";
-import LinkedInIcon from "./icons/LinkedInIcon.astro";
-import MailIcon from "./icons/MailIcon.astro";
+import { CONTACT_OPTIONS } from "src/constants";
 ---
 
 <article class="flex flex-col md:flex-row gap-5">
@@ -12,50 +10,26 @@ import MailIcon from "./icons/MailIcon.astro";
             <HandClickIcon class="size-6 lg:size-7 text-color inline"/>
     </h3>
     <ul class="flex-1 flex flex-col gap-5 text-xl">
-        <li class="flex flex-col group hover:scale-[1.02] transition">
-            <a
-                href="https://www.linkedin.com/in/fernandomunozfrias"
-                aria-label="Enlace a LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="focus:outline focus:outline-1 focus:outline-mainBg focus:p-1.5 rounded-2xl"
-            >
-                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
-                    <LinkedInIcon class="size-4 md:size-5 lg:size-6 text-color"/>
-                    LinkedIn.
-                </h4>
-                <p class="text-lg opacity-80">Aquí también encontrarás más información sobre mí, así como publicaciones y certificados.</p>
-            </a>
-        </li>
-        <li class="flex flex-col group hover:scale-[1.02] transition">
-            <a
-                href="https://github.com/Namnoh"
-                aria-label="Enlace a GitHub"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="focus:outline focus:outline-1 focus:outline-mainBg focus:p-1.5 rounded-2xl"
-            >
-                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
-                    <GitHubIcon class="size-4 md:size-5 lg:size-6 text-color"/>
-                    GitHub
-                </h4>
-                <p class="text-lg opacity-80">Acá podrás ver más sobre mis proyectos y también sus códigos.</p>
-            </a>
-        </li>
-        <li class="flex flex-col group hover:scale-[1.02] transition">
-            <a
-                href="mailto:ferm.programmer@gmail.com"
-                aria-label="Enviar a Correo"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="focus:outline focus:outline-1 focus:outline-mainBg focus:p-1.5 rounded-2xl"
-            >
-                <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
-                    <MailIcon class="size-4 md:size-5 lg:size-6 text-color"/>
-                    ferm.programmer@gmail.com
-                </h4>
-                <p class="text-lg opacity-80">¡Y no dudes en enviarme un correo! Responderé a la brevedad :) .</p>
-            </a>
-        </li>
+        { Object.values(CONTACT_OPTIONS).map(option => {
+            const { name, url, icon, description, ariaLabel } = option;
+            const Icon = icon;
+            return (
+                <li class="flex flex-col group hover:scale-[1.02] transition">
+                <a
+                    href={url}
+                    aria-label={ariaLabel ?? `Enlace a ${name}` }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="focus:outline focus:outline-2 focus:outline-mainBg focus:p-1.5 rounded-2xl"
+                >
+                    <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
+                        <Icon class="size-4 md:size-5 lg:size-6 text-color"/>
+                        {name}.
+                    </h4>
+                    <p class="text-lg opacity-80">{description}</p>
+                </a>
+            </li>
+            )
+        })}
     </ul>
 </article>
