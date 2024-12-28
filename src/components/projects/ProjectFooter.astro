@@ -18,19 +18,19 @@ const { title, github, link, video } = Astro.props;
     github || link ? (
         <footer class="inline-flex flex-wrap gap-5 mb-5">
             { github && (
-                <SocialPill href={github} aria-label={`Enlace a código del proyecto: ${title}`}>
+                <SocialPill href={github} aria-label={`Enlace a código del proyecto: ${title}`} title={`Revisa el código fuente del proyecto ${title}.`}>
                     <GitHubIcon class="size-5 md:size-6 text-color"/>
                     Código
                 </SocialPill>
             )}
             { link && (
-                <SocialPill href={link} aria-label={`Enlace a despliegue del proyecto: ${title}`}>
+                <SocialPill href={link} aria-label={`Enlace a despliegue del proyecto: ${title}`} title={`Revisa el despliegue del proyecto ${title}.`}>
                     <LinkIcon class="size-5 md:size-6 text-color"/>
                     Ver más
                 </SocialPill>
             )}
             { video && (
-                <SocialPill href={video} aria-label={`Enlace video del proyecto: ${title}`}>
+                <SocialPill href={video} aria-label={`Enlace a video del proyecto: ${title}`} title={`Revisa el video del proyecto ${title}.`}>
                     <VideoYTIcon class="size-5 md:size-6 text-color"/>
                     Video
                 </SocialPill>
