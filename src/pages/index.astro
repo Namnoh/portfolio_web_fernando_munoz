@@ -17,19 +17,20 @@ import ContactMe from '@components/ContactMe.astro';
 ---
 
 <Layout 
-	title="Desarrollador y Programador Web Full Stack | Portfolio - Fernando Muñoz"
-	description="Contrata a Fernando Muñoz para crear tu aplicación web o móvil. Desarrollador Web Full Stack especializado en tecnologías JavaScript."
+	title="Desarrollador y Programador Web Full Stack | Fernando Muñoz"
+	description="Contrata a Fernando Muñoz para crear tu aplicación o página web o móvil. Desarrollador Web Full Stack especializado en tecnologías JavaScript."
 >
 	<main class="px-5 md:px-10 lg:px-0">
 		<SectionContainer class="pt-32 md:pt-44 pb-28">
 			<div class="flex gap-x-5 items-center mb-10">
 				<Image
 					src="/imgs/profile-picture-square.webp"
-					alt="Fernando Muñoz."
+					alt="Fotografía de perfil de Fernando Muñoz."
 					class="rounded-3xl size-40 md:size-48 lg:size-52"
 					loading="eager"
 					width={100}
 					height={100}
+					title="Fernando Muñoz - Desarrollador Web Full Stack"
 				/>
 				<div class="flex flex-col gap-y-2">
 					<Badge>Disponible para Trabajar</Badge>
@@ -48,19 +49,19 @@ import ContactMe from '@components/ContactMe.astro';
 			<nav>
 				<ul class="flex flex-wrap gap-5 mt-8">
 					<li>
-						<SocialPill href="https://www.linkedin.com/in/fernandomunozfrias" aria-label="Enlace a LinkedIn">
+						<SocialPill href="https://www.linkedin.com/in/fernandomunozfrias" aria-label="Enlace a LinkedIn" title="Revisa mi perfil de LinkedIn.">
 							<LinkedInIcon class="size-4 md:size-5 lg:size-6 text-color"/>
 							LinkedIn
 						</SocialPill>
 					</li>
 					<li>
-						<SocialPill href="https://github.com/Namnoh" aria-label="Enlace a GitHub">
+						<SocialPill href="https://github.com/Namnoh" aria-label="Enlace a GitHub" title="Revisa mi perfil de GitHub.">
 							<GitHubIcon class="size-4 md:size-5 lg:size-6 text-color"/>
 							GitHub
 						</SocialPill>
 					</li>
 					<li>
-						<SocialPill href="mailto:ferm.programmer@gmail.com" aria-label="Enviar Correo">
+						<SocialPill href="mailto:ferm.programmer@gmail.com" aria-label="Enviar Correo" title="Envíame un correo.">
 							<MailIcon class="size-4 md:size-5 lg:size-6 text-color"/>
 							ferm.programmer@gmail.com
 						</SocialPill>
