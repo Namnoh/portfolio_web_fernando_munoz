@@ -1,5 +1,7 @@
 import { defineCollection, z } from "astro:content";
-import { TAGS, type Tag } from 'src/constants';
+import { TAGS } from 'src/constants';
+import { type Tag } from 'src/types';
+
 
 const experience = defineCollection({
     type: "content",
