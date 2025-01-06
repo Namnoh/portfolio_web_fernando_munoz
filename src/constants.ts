@@ -146,7 +146,6 @@ export const TAGS: Record<string, Tags> = {
         scope: 'Front-End'
     }
 };
-export type Tag = keyof typeof TAGS;
 
 const MAIN_TECH_KEYS = ['HTML', 'CSS', 'JAVASCRIPT', 'REACT', 'NEXT', 'TYPESCRIPT', 'TAILWINDCSS', 'ASTRO', 'NESTJS', 'NODEJS', 'PYTHON', 'POSTGRESQL', 'GITHUB', 'GIT',  'FIGMA'];
 

@@ -1,3 +1,7 @@
+import type { TAGS } from "./constants";
+
+export type Tag = keyof typeof TAGS;
+
 export type Tags = {
     name: string;
     class: string;
