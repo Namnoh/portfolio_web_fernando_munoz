@@ -51,31 +51,31 @@ export const TAGS: Record<string, Tags> = {
     },
     REACT: {
         name: 'React',
-        class: 'bg-[#00d8ff]/25 text-white',
+        class: 'bg-[#00d8ff]/20 text-white',
         icon: ReactIcon,
         scope: 'Front-End'
     },
     TAILWINDCSS: {
         name: 'Tailwind CSS',
-        class: 'bg-[#19b4b9]/25 text-white',
+        class: 'bg-[#19b4b9]/20 text-white',
         icon: TailwindIcon,
         scope: 'Front-End'
     },
     TYPESCRIPT: {
         name: 'TypeScript',
-        class: 'bg-[#3178c6]/30 text-white',
+        class: 'bg-[#3178c6]/25 text-white',
         icon: TypeScriptIcon,
         scope: 'All'
     },
     NESTJS: {
         name: 'NestJS',
-        class: 'bg-[#e0224e]/25 text-white',
+        class: 'bg-[#e0224e]/20 text-white',
         icon: NestJSIcon,
         scope: 'Back-End'
     },
     PYTHON: {
         name: 'Python',
-        class: 'bg-[#3775a7]/30 text-white',
+        class: 'bg-[#3775a7]/25 text-white',
         icon: PythonIcon,
         scope: 'Back-End'
     },
@@ -87,7 +87,7 @@ export const TAGS: Record<string, Tags> = {
     },
     POSTGRESQL: {
         name: 'PostgreSQL',
-        class: 'bg-[#326690]/30 text-white',
+        class: 'bg-[#326690]/25 text-white',
         icon: PostgreSQLIcon,
         scope: 'Back-End'
     },
@@ -105,25 +105,25 @@ export const TAGS: Record<string, Tags> = {
     },
     JAVASCRIPT: {
         name: 'JavaScript',
-        class: 'bg-[#f1da4e]/25 text-white',
+        class: 'bg-[#f1da4e]/20 text-white',
         icon: JavaScriptIcon,
         scope: 'All'
     },
     GIT: {
         name: 'Git',
-        class: 'bg-[#de4c35]/25 text-white',
+        class: 'bg-[#de4c35]/20 text-white',
         icon: GitIcon,
         scope: 'Tools'
     },
     ASTRO: {
         name: 'Astro',
-        class: 'bg-[#f95f07]/25 text-white',
+        class: 'bg-[#f95f07]/20 text-white',
         icon: AstroIcon,
         scope: 'Front-End'
     },
     NODEJS: {
         name: 'Node.js',
-        class: 'bg-[#68bb49]/25 text-white',
+        class: 'bg-[#68bb49]/20 text-white',
         icon: NodejsIcon,
         scope: 'Back-End'
     },
@@ -135,13 +135,13 @@ export const TAGS: Record<string, Tags> = {
     },
     HTML: {
         name: 'HTML5',
-        class: 'bg-[#e34f27]/25 text-white',
+        class: 'bg-[#e34f27]/20 text-white',
         icon: HTML5Icon,
         scope: 'Front-End'
     },
     CSS: {
         name: 'CSS',
-        class: 'bg-[#663398]/35 text-white',
+        class: 'bg-[#663398]/30 text-white',
         icon: CSSIcon,
         scope: 'Front-End'
     }

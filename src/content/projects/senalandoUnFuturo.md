@@ -7,4 +7,4 @@ img: '/imgs/projects/SenalandoUnFuturo-portfolio.webp'
 video: 'https://www.youtube.com/watch?v=lSXqBsSOrpU'
 ---
 
-Aplicación web creada desde 0, utilizando herramientas como **SSR, componentes del lado del cliente, rutas dinámicas, creación e implementación de IA en la web, API's** y más.
+Aplicación web creada desde 0, utilizando herramientas como **SSR, componentes del lado del cliente, rutas dinámicas, creación e implementación de IA en la web, retroalimentación en tiempo real, API's** y más.
