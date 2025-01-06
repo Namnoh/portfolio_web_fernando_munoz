@@ -69,7 +69,7 @@ export const TAGS: Record<string, Tags> = {
     },
     NESTJS: {
         name: 'NestJS',
-        class: 'bg-[#e0224e]/20 text-white',
+        class: 'bg-[#e0224e]/15 text-white',
         icon: NestJSIcon,
         scope: 'Back-End'
     },
