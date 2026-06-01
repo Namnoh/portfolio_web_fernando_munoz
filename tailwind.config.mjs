@@ -7,8 +7,8 @@ export default {
 			colors: {
 				primary: '#00712d',
 				secondary: '#ff9100',
-				tertiary: '#d5ed9f',
-				mainBg: '#ffcf52',
+				tertiary: 'var(--color-tertiary)',
+				mainBg: 'var(--color-mainBg)',
 				secondaryBg: '#ffe0b2'
 			}
 		},

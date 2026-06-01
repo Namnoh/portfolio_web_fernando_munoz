@@ -12,6 +12,9 @@ export const ui = {
     'nav.aboutMe': 'Sobre mí',
     'nav.contactMe': 'Contáctame',
     'nav.language': 'Idioma',
+    'nav.theme': 'Tema',
+    'nav.theme.dark': 'Oscuro',
+    'nav.theme.light': 'Claro',
 
     'hero.badge.available': 'Disponible para Trabajar',
     'hero.badge.working': 'Trabajando',
@@ -55,6 +58,9 @@ export const ui = {
     'nav.aboutMe': 'About Me',
     'nav.contactMe': 'Contact Me',
     'nav.language': 'Language',
+    'nav.theme': 'Theme',
+    'nav.theme.dark': 'Dark',
+    'nav.theme.light': 'Light',
 
     'hero.badge.available': 'Available for Work',
     'hero.badge.working': 'Working',

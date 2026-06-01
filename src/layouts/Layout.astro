@@ -14,7 +14,7 @@ const lang = Astro.currentLocale || "es";
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -28,9 +28,23 @@ const lang = Astro.currentLocale || "es";
 		<meta name="robots" content="index, follow">
 		<meta name="publisher" content="Fernando Muñoz - Desarrollador Web">
 		<meta name="google-site-verification" content="Ff_zypdntAA7-SeYJWWFER4tUTswZ_awj0sft8S5zCA" />
+		<!-- Anti-FOUC: Apply theme before paint -->
+		<script is:inline>
+			(function() {
+				const theme = localStorage.getItem('theme') || 'dark';
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script>
 	</head>
-	<body>
-		<div class="fixed top-0 left-0 z-[-2] min-h-screen min-w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#000400_1px)] bg-[size:20px_20px]"></div>
+	<body class="dark:text-white text-gray-900">
+		<div class="fixed top-0 left-0 z-[-2] min-h-screen min-w-full
+			dark:bg-[#000000] dark:bg-[radial-gradient(#ffffff33_1px,#000400_1px)]
+			bg-[#f0f0f0] bg-[radial-gradient(#00000015_1px,#f0f0f0_1px)]
+			bg-[size:20px_20px]"></div>
 		<Header />
 		<slot />
 		<Footer />
@@ -41,6 +55,13 @@ const lang = Astro.currentLocale || "es";
 <style is:global>
 	:root {
 		color-scheme: light dark;
+		--color-mainBg: #b38600;
+		--color-tertiary: #3a7d1c;
+	}
+
+	.dark {
+		--color-mainBg: #ffcf52;
+		--color-tertiary: #d5ed9f;
 	}
 	
 	html {
@@ -57,7 +78,6 @@ const lang = Astro.currentLocale || "es";
 		flex-direction: column;
 		min-height: 100vh;
 		background-repeat: repeat;
-		/* line-height: 1.5; Nomalización de "line-height" */
 	}
 
 	*, *::before, *::after {
@@ -70,15 +90,3 @@ const lang = Astro.currentLocale || "es";
 		}
 	}
 </style>
-
-<script>
-	// Estilos globales
-	document.addEventListener('DOMContentLoaded', () => {
-		const htmlElement = document.documentElement;
-		if (htmlElement.classList.contains('dark')) {
-			htmlElement.classList.remove('dark');
-		} else {
-			htmlElement.classList.add('dark');
-		}
-	});
-</script>

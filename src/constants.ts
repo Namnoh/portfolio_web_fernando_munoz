@@ -47,115 +47,115 @@ export const NAV_LINKS = [
 export const TAGS: Record<string, Tags> = {
     NEXT: {
         name: 'Next.js',
-        class: 'bg-black text-white',
+        class: 'bg-black !text-white',
         icon: NextjsIcon,
         scope: 'Front-End'
     },
     REACT: {
         name: 'React',
-        class: 'bg-[#00d8ff]/20 text-white',
+        class: 'bg-[#00d8ff]/20',
         icon: ReactIcon,
         scope: 'Front-End'
     },
     TAILWINDCSS: {
         name: 'Tailwind CSS',
-        class: 'bg-[#19b4b9]/20 text-white',
+        class: 'bg-[#19b4b9]/20',
         icon: TailwindIcon,
         scope: 'Front-End'
     },
     TYPESCRIPT: {
         name: 'TypeScript',
-        class: 'bg-[#3178c6]/25 text-white',
+        class: 'bg-[#3178c6]/25',
         icon: TypeScriptIcon,
         scope: 'All'
     },
     NESTJS: {
         name: 'NestJS',
-        class: 'bg-[#e0224e]/15 text-white',
+        class: 'bg-[#e0224e]/15',
         icon: NestJSIcon,
         scope: 'Back-End'
     },
     PYTHON: {
         name: 'Python',
-        class: 'bg-[#3775a7]/25 text-white',
+        class: 'bg-[#3775a7]/25',
         icon: PythonIcon,
         scope: 'Back-End'
     },
     SHADCN: {
         name: 'Shadcn',
-        class: 'bg-black text-white',
+        class: 'bg-black !text-white',
         icon: ShadcnIcon,
         scope: 'Front-End'
     },
     POSTGRESQL: {
         name: 'PostgreSQL',
-        class: 'bg-[#326690]/25 text-white',
+        class: 'bg-[#326690]/25',
         icon: PostgreSQLIcon,
         scope: 'Back-End'
     },
     GITHUB: {
         name: 'GitHub',
-        class: 'bg-black text-white',
+        class: 'bg-black !text-white',
         icon: GitHubIcon,
         scope: 'Tools'
     },
     PRISMAORM: {
         name: 'Prisma ORM',
-        class: 'bg-black text-white',
+        class: 'bg-black !text-white',
         icon: PrismaIcon,
         scope: 'Back-End'
     },
     JAVASCRIPT: {
         name: 'JavaScript',
-        class: 'bg-[#f1da4e]/20 text-white',
+        class: 'bg-[#f1da4e]/20',
         icon: JavaScriptIcon,
         scope: 'All'
     },
     GIT: {
         name: 'Git',
-        class: 'bg-[#de4c35]/20 text-white',
+        class: 'bg-[#de4c35]/20',
         icon: GitIcon,
         scope: 'Tools'
     },
     ASTRO: {
         name: 'Astro',
-        class: 'bg-[#f95f07]/20 text-white',
+        class: 'bg-[#f95f07]/20',
         icon: AstroIcon,
         scope: 'Front-End'
     },
     NODEJS: {
         name: 'Node.js',
-        class: 'bg-[#68bb49]/20 text-white',
+        class: 'bg-[#68bb49]/20',
         icon: NodejsIcon,
         scope: 'Back-End'
     },
     FIGMA: {
         name: 'Figma',
-        class: 'bg-black text-white',
+        class: 'bg-black !text-white',
         icon: FigmaIcon,
         scope: 'Tools'
     },
     HTML: {
         name: 'HTML5',
-        class: 'bg-[#e34f27]/20 text-white',
+        class: 'bg-[#e34f27]/20',
         icon: HTML5Icon,
         scope: 'Front-End'
     },
     CSS: {
         name: 'CSS',
-        class: 'bg-[#663398]/30 text-white',
+        class: 'bg-[#663398]/30',
         icon: CSSIcon,
         scope: 'Front-End'
     },
     ANGULAR: {
         name: 'Angular',
-        class: 'bg-[#e0224e]/15 text-white',
+        class: 'bg-[#e0224e]/15',
         icon: AngularIcon,
         scope: 'Front-End'
     },
     EXPRESSJS: {
         name: 'Express.js',
-        class: 'bg-[#68bb49]/20 text-white',
+        class: 'bg-[#68bb49]/20',
         icon: ExpressJSIcon,
         scope: 'Back-End'
     }

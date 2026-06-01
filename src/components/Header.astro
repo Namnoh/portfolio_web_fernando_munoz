@@ -1,6 +1,8 @@
 ---
 import Chip from "./Chip.astro";
 import { useTranslations } from "src/i18n/utils";
+import SunIcon from "./icons/others/SunIcon.astro";
+import MoonIcon from "./icons/others/MoonIcon.astro";
 
 const lang = (Astro.currentLocale as "es" | "en") || "es";
 const t = useTranslations(lang);
@@ -61,6 +63,7 @@ const NAV_LINKS = [
             class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg dark:bg-black/90 bg-white/95 backdrop-blur ring-1 ring-black/5 dark:ring-white/10 opacity-0 invisible transition-all transform origin-top-right scale-95 z-50"
         >
             <div class="py-2">
+                <!-- Language Section -->
                 <div
                     class="px-4 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider"
                 >
@@ -82,8 +85,31 @@ const NAV_LINKS = [
                         >
                     </li>
                 </ul>
-                <div class="border-t border-gray-200 dark:border-white/10">
+                <div class="border-t border-gray-200 dark:border-white/10"></div>
+                <!-- Theme Section -->
+                <div
+                    class="px-4 py-1 mt-2 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                >
+                    {t("nav.theme")}
                 </div>
+                <ul class="text-sm">
+                    <li>
+                        <button
+                            id="theme-dark-btn"
+                            class="w-full text-left flex items-center gap-x-2 px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10 transition"
+                        >
+                            <MoonIcon class="w-4 h-4" /> {t("nav.theme.dark")}
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="theme-light-btn"
+                            class="w-full text-left flex items-center gap-x-2 px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10 transition"
+                        >
+                            <SunIcon class="w-4 h-4" /> {t("nav.theme.light")}
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -125,7 +151,10 @@ const NAV_LINKS = [
         const btn = document.getElementById("options-toggle");
         const menu = document.getElementById("options-menu");
         const icon = document.getElementById("options-icon");
+        const darkBtn = document.getElementById("theme-dark-btn");
+        const lightBtn = document.getElementById("theme-light-btn");
 
+        // --- Dropdown toggle ---
         if (btn && menu && icon) {
             btn.addEventListener("click", (e) => {
                 e.stopPropagation();
@@ -164,5 +193,38 @@ const NAV_LINKS = [
                 }
             });
         }
+
+        // --- Theme toggle ---
+        function updateThemeButtons() {
+            const isDark = document.documentElement.classList.contains("dark");
+            if (darkBtn) {
+                darkBtn.classList.toggle("font-bold", isDark);
+                darkBtn.classList.toggle("text-mainBg", isDark);
+            }
+            if (lightBtn) {
+                lightBtn.classList.toggle("font-bold", !isDark);
+                lightBtn.classList.toggle("text-mainBg", !isDark);
+            }
+        }
+
+        function setTheme(theme: string) {
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            localStorage.setItem("theme", theme);
+            updateThemeButtons();
+        }
+
+        if (darkBtn) {
+            darkBtn.addEventListener("click", () => setTheme("dark"));
+        }
+        if (lightBtn) {
+            lightBtn.addEventListener("click", () => setTheme("light"));
+        }
+
+        // Initialize button styles on load
+        updateThemeButtons();
     });
 </script>
