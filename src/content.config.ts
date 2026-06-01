@@ -1,10 +1,11 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 import { TAGS } from 'src/constants';
 import { type Tag } from 'src/types';
 
 
 const experience = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: "./src/content/experience" }),
     schema: z.object({
         title: z.string(),
         company: z.string(),
@@ -14,7 +15,7 @@ const experience = defineCollection({
 });
 
 const projects = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
     schema: z.object({
         title: z.string(),
         tags: z.array(z.enum(Object.keys(TAGS) as [Tag, ...Tag[]])),
