@@ -1,0 +1,199 @@
+---
+import { Image } from "astro:assets";
+import Badge from "@components/Badge.astro";
+import Layout from "../../layouts/Layout.astro";
+import LinkedInIcon from "@components/icons/LinkedInIcon.astro";
+import GitHubIcon from "@components/icons/GitHubIcon.astro";
+import MailIcon from "@components/icons/MailIcon.astro";
+import SocialPill from "@components/SocialPill.astro";
+import Experience from "@components/experience/Experience.astro";
+import SectionContainer from "@components/SectionContainer.astro";
+import BriefCaseIcon from "@components/icons/BriefCaseIcon.astro";
+import CodeIcon from "@components/icons/CodeIcon.astro";
+import Projects from "@components/projects/Projects.astro";
+import AboutMe from "@components/AboutMe.astro";
+import PersonIcon from "@components/icons/PersonIcon.astro";
+import ContactMe from "@components/ContactMe.astro";
+import DownloadIcon from "@components/icons/DownloadIcon.astro";
+import { useTranslations } from "src/i18n/utils";
+
+const lang = (Astro.currentLocale as "es" | "en") || "es";
+const t = useTranslations(lang);
+---
+
+<Layout
+	title={lang === "es"
+		? "Desarrollador y Programador Web Full Stack | Fernando Muñoz"
+		: "Full Stack Web Developer & Programmer | Fernando Muñoz"}
+	description={lang === "es"
+		? "Contrata a Fernando Muñoz para crear tu aplicación o página web o móvil. Desarrollador Web Full Stack especializado en tecnologías JavaScript."
+		: "Hire Fernando Muñoz to build your web or mobile application. Full Stack Web Developer specialized in JavaScript technologies."}
+>
+	<main class="px-5 md:px-10 lg:px-0">
+		<SectionContainer class="pt-32 md:pt-44 pb-28">
+			<div class="flex gap-x-5 items-center mb-8">
+				<Image
+					src="/imgs/profile-picture-square.webp"
+					alt="Fotografía de perfil de Fernando Muñoz."
+					class="rounded-3xl size-40 md:size-48 lg:size-52"
+					loading="eager"
+					width={100}
+					height={100}
+					title="Fernando Muñoz - Desarrollador Web Full Stack"
+				/>
+				<div class="flex flex-col gap-y-2">
+					<Badge status="working" />
+					<h1
+						class="text-white text-2xl md:text-4xl lg:text-5xl font-medium text-pretty"
+					>
+						<span class="font-bold block">Fernando Muñoz</span>
+						<span class="text-tertiary font-bold block md:inline"
+							>{t("hero.developer")}</span
+						>
+						<span
+							class="text-tertiary font-bold md:inline writingText"
+						></span>
+					</h1>
+				</div>
+			</div>
+			<h2 class="text-xl md:text-2xl text-wrap max-w-[700px]">
+				<span class="opacity-80">{t("hero.description.1")}</span><span
+					class="text-mainBg">{t("hero.description.2")}</span
+				>
+				<span class="opacity-80">{t("hero.description.3")}</span><span
+					class="text-mainBg">{t("hero.description.4")}</span
+				>
+				<span class="opacity-80">{t("hero.description.5")}</span><span
+					class="text-mainBg">{t("hero.description.6")}</span
+				>
+			</h2>
+			<nav>
+				<ul class="flex flex-wrap gap-5 mt-8">
+					<li>
+						<SocialPill
+							href="https://www.linkedin.com/in/fernandomunozfrias"
+							aria-label={lang === "es"
+								? "Enlace a LinkedIn."
+								: "LinkedIn link."}
+							title={lang === "es"
+								? "Revisa mi perfil de LinkedIn."
+								: "Check my LinkedIn profile."}
+						>
+							<LinkedInIcon
+								class="size-4 md:size-5 lg:size-6 text-color"
+							/>
+							{t("hero.pill.linkedin")}
+						</SocialPill>
+					</li>
+					<li>
+						<SocialPill
+							href="https://github.com/Namnoh"
+							aria-label={lang === "es"
+								? "Enlace a GitHub."
+								: "Github link."}
+							title={lang === "es"
+								? "Revisa mi perfil de GitHub."
+								: "Check my GitHub profile."}
+						>
+							<GitHubIcon
+								class="size-4 md:size-5 lg:size-6 text-color"
+							/>
+							{t("hero.pill.github")}
+						</SocialPill>
+					</li>
+					<li>
+						<SocialPill
+							href={lang === "es"
+								? "/CVs/Fernando-Munoz-CV.pdf"
+								: "/CVs/Fernando-Munoz-CV-EN.pdf"}
+							download={lang === "es"
+								? "Fernando-Munoz-CV.pdf"
+								: "Fernando-Munoz-CV-EN.pdf"}
+							aria-label={lang === "es"
+								? "Descargar currículum en español."
+								: "Download my resume in English."}
+							title={lang === "es"
+								? "Descargar currículum en español."
+								: "Download my resume in English."}
+						>
+							<DownloadIcon
+								class="size-4 md:size-5 lg:size-6 text-color"
+							/>
+							{t("hero.pill.cv")}
+						</SocialPill>
+					</li>
+					<li>
+						<SocialPill
+							href="mailto:ferm.programmer@gmail.com"
+							aria-label={lang === "es"
+								? "Enviar Correo."
+								: "Send Email."}
+							title={lang === "es"
+								? "Envíame un correo."
+								: "Send me an email."}
+						>
+							<MailIcon
+								class="size-4 md:size-5 lg:size-6 text-color"
+							/>
+							{t("hero.pill.email")}
+						</SocialPill>
+					</li>
+				</ul>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experience">
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5">
+				<BriefCaseIcon class="size-8" />
+				{t("section.experience")}
+			</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="projects" class="mt-28">
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5">
+				<CodeIcon class="size-8" />
+				{t("section.projects")}
+			</h2>
+			<Projects />
+		</SectionContainer>
+
+		<SectionContainer id="aboutMe" class="mt-28">
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5">
+				<PersonIcon class="size-8" />
+				{t("section.aboutMe")}
+			</h2>
+			<AboutMe />
+		</SectionContainer>
+
+		<!-- TODO: Hacer formulario de contacto -->
+		<SectionContainer id="contactMe" class="mt-28">
+			<h2 class="text-3xl font-semibold mb-10 flex items-center gap-x-5">
+				<MailIcon class="size-8" />
+				{t("section.contactMe")}
+			</h2>
+			<ContactMe />
+		</SectionContainer>
+	</main>
+</Layout>
+
+<script>
+	import Typed from "typed.js";
+	const typed = new Typed(".writingText", {
+		strings: [
+			"Full Stack",
+			"Front-End",
+			"React",
+			"Next.js",
+			"Back-End",
+			"Node.js",
+			"Nest.js",
+			"Full Stack",
+		],
+		startDelay: 1000,
+		typeSpeed: 100,
+		backSpeed: 70,
+		backDelay: 1000,
+		loop: false,
+	});
+</script>

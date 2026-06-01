@@ -1,16 +1,92 @@
 ---
 import Chip from "./Chip.astro";
-import { NAV_LINKS } from "src/constants";
+import { useTranslations } from "src/i18n/utils";
+
+const lang = (Astro.currentLocale as "es" | "en") || "es";
+const t = useTranslations(lang);
+const prefix = lang === "es" ? "/" : `/${lang}/`;
+
+const NAV_LINKS = [
+    { title: t("nav.experience"), url: `${prefix}#experience` },
+    { title: t("nav.projects"), url: `${prefix}#projects` },
+    { title: t("nav.aboutMe"), url: `${prefix}#aboutMe` },
+    { title: t("nav.contactMe"), url: `${prefix}#contactMe` },
+];
 ---
 
-<header class="fixed top-0 z-10 flex justify-center items-center py-5 w-full mx-auto">
-    <nav class="flex flex-row text-sm md:text-base gap-x-5 md:gap-x-10 rounded-full py-1 px-3">
+<header
+    class="fixed top-0 z-10 flex justify-center items-center py-5 w-full mx-auto"
+>
+    <nav
+        class="flex flex-row text-sm md:text-base gap-x-3 md:gap-x-6 rounded-full py-1 px-3 items-center"
+    >
         {
-            NAV_LINKS.map(link => (
-                <Chip href={link.url} aria-label={link.label}>{link.title}</Chip>
+            NAV_LINKS.map((link) => (
+                <Chip href={link.url} aria-label={link.title}>
+                    {link.title}
+                </Chip>
             ))
         }
     </nav>
+    <div class="relative ml-2">
+        <button
+            id="options-toggle"
+            aria-label="Opciones / Options"
+            aria-expanded="false"
+            aria-controls="options-menu"
+            class="flex items-center justify-center p-2 rounded-full hover:bg-white/10 transition opacity-80 hover:opacity-100"
+        >
+            <svg
+                class="w-5 h-5 transition-transform duration-300"
+                id="options-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+        </button>
+        <div
+            id="options-menu"
+            class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg dark:bg-black/90 bg-white/95 backdrop-blur ring-1 ring-black/5 dark:ring-white/10 opacity-0 invisible transition-all transform origin-top-right scale-95 z-50"
+        >
+            <div class="py-2">
+                <div
+                    class="px-4 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                >
+                    {t("nav.language")}
+                </div>
+                <ul class="text-sm mb-2">
+                    <li>
+                        <a
+                            href="/"
+                            class={`block px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10 transition ${lang === "es" ? "font-bold text-mainBg" : ""}`}
+                            >🇪🇸 Español</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/en"
+                            class={`block px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10 transition ${lang === "en" ? "font-bold text-mainBg" : ""}`}
+                            >🇺🇸 English</a
+                        >
+                    </li>
+                </ul>
+                <div class="border-t border-gray-200 dark:border-white/10">
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <style>
@@ -19,11 +95,21 @@ import { NAV_LINKS } from "src/constants";
         animation-timeline: scroll();
         animation-range: 0 80px;
     }
-    
+
     nav {
         @apply dark:bg-black/85 bg-white/50 opacity-90;
     }
-    
+
+    #options-toggle {
+        animation: nav-shadow 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 80px;
+    }
+
+    #options-toggle {
+        @apply dark:bg-black/85 bg-white/50 opacity-90;
+    }
+
     @keyframes nav-shadow {
         0% {
             @apply dark:bg-gray-800/0 bg-white/0;
@@ -33,3 +119,50 @@ import { NAV_LINKS } from "src/constants";
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("options-toggle");
+        const menu = document.getElementById("options-menu");
+        const icon = document.getElementById("options-icon");
+
+        if (btn && menu && icon) {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const isExpanded = btn.getAttribute("aria-expanded") === "true";
+                btn.setAttribute(
+                    "aria-expanded",
+                    !isExpanded ? "true" : "false",
+                );
+
+                if (!isExpanded) {
+                    menu.classList.remove("opacity-0", "invisible", "scale-95");
+                    menu.classList.add("opacity-100", "visible", "scale-100");
+                    icon.classList.add("rotate-90");
+                } else {
+                    menu.classList.add("opacity-0", "invisible", "scale-95");
+                    menu.classList.remove(
+                        "opacity-100",
+                        "visible",
+                        "scale-100",
+                    );
+                    icon.classList.remove("rotate-90");
+                }
+            });
+
+            document.addEventListener("click", (e) => {
+                const target = e.target as Node;
+                if (!menu.contains(target) && !btn.contains(target)) {
+                    btn.setAttribute("aria-expanded", "false");
+                    menu.classList.add("opacity-0", "invisible", "scale-95");
+                    menu.classList.remove(
+                        "opacity-100",
+                        "visible",
+                        "scale-100",
+                    );
+                    icon.classList.remove("rotate-90");
+                }
+            });
+        }
+    });
+</script>

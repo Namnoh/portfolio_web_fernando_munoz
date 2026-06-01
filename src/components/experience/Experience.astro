@@ -2,7 +2,8 @@
 import ExperienceItem from "./ExperienceItem.astro"
 import { getCollection } from 'astro:content';
 
-const EXPERIENCES = await getCollection("experience");
+const lang = Astro.currentLocale || "es";
+const EXPERIENCES = await getCollection("experience", (entry) => entry.id.startsWith(`${lang}/`));
 ---
 
 <ol class="relative border-s border-gray-600 dark:border-white ml-3.5">                  

@@ -5,7 +5,8 @@ import ProjectFooter from "./ProjectFooter.astro";
 import { getCollection, render } from 'astro:content';
 import Tag from '@components/Tag.astro';
 
-const PROJECTS = await getCollection("projects");
+const lang = Astro.currentLocale || "es";
+const PROJECTS = await getCollection("projects", (entry) => entry.id.startsWith(`${lang}/`));
 ---
 
 {

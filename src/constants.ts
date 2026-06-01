@@ -18,29 +18,31 @@ import NodejsIcon from "@components/icons/technologies/NodejsIcon.astro";
 import FigmaIcon from "@components/icons/technologies/FigmaIcon.astro";
 import HTML5Icon from "@components/icons/technologies/HTML5Icon.astro";
 import CSSIcon from "@components/icons/technologies/CSSIcon.astro";
+import AngularIcon from "@components/icons/technologies/AngularIcon.astro";
+import ExpressJSIcon from "@components/icons/technologies/ExpressJSIcon.astro";
 
 export const NAV_LINKS = [
     {
-        title: "Experiencia",
-        label: "Experiencia",
+        title: "nav.experience",
+        label: "nav.experience",
         url: "/#experience",
     },
     {
-        title: "Proyectos",
-        label: "Proyectos",
+        title: "nav.projects",
+        label: "nav.projects",
         url: "/#projects",
     },
     {
-        title: "Sobre mí",
-        label: "Sobre mi",
+        title: "nav.aboutMe",
+        label: "nav.aboutMe",
         url: "/#aboutMe",
     },
     {
-        title: "Contáctame",
-        label: "Contáctame",
+        title: "nav.contactMe",
+        label: "nav.contactMe",
         url: "/#contactMe",
     },
-];
+] as const;
 
 export const TAGS: Record<string, Tags> = {
     NEXT: {
@@ -144,10 +146,22 @@ export const TAGS: Record<string, Tags> = {
         class: 'bg-[#663398]/30 text-white',
         icon: CSSIcon,
         scope: 'Front-End'
+    },
+    ANGULAR: {
+        name: 'Angular',
+        class: 'bg-[#e0224e]/15 text-white',
+        icon: AngularIcon,
+        scope: 'Front-End'
+    },
+    EXPRESSJS: {
+        name: 'Express.js',
+        class: 'bg-[#68bb49]/20 text-white',
+        icon: ExpressJSIcon,
+        scope: 'Back-End'
     }
 };
 
-const MAIN_TECH_KEYS = ['HTML', 'CSS', 'JAVASCRIPT', 'REACT', 'NEXT', 'TYPESCRIPT', 'TAILWINDCSS', 'ASTRO', 'NESTJS', 'NODEJS', 'PYTHON', 'POSTGRESQL', 'GITHUB', 'GIT',  'FIGMA'];
+const MAIN_TECH_KEYS = ['HTML', 'CSS', 'JAVASCRIPT', 'NODEJS', 'EXPRESSJS', 'REACT', 'NEXT', 'TYPESCRIPT', 'TAILWINDCSS', 'ASTRO', 'NESTJS', 'PYTHON', 'POSTGRESQL', 'GITHUB', 'GIT', 'FIGMA', 'ANGULAR'];
 
 export const MAIN_TECH = MAIN_TECH_KEYS.reduce((acc, key) => {
     if (TAGS[key]) {

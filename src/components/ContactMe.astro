@@ -1,36 +1,48 @@
 ---
 import HandClickIcon from "./icons/HandClickIcon.astro";
 import { CONTACT_OPTIONS } from "src/constants";
+import { useTranslations } from "src/i18n/utils";
+
+const lang = (Astro.currentLocale as "es" | "en") || "es";
+const t = useTranslations(lang);
 ---
 
 <article class="flex flex-col md:flex-row gap-5">
     <h3 class="flex-1 text-2xl font-bold">
-            Juntos podemos construir algo increíble.
-            <span class="text-mainBg">¡Contacta conmigo!</span>
-            <HandClickIcon class="size-6 lg:size-7 text-color inline"/>
+        {t("contact.title.1")}
+        <span class="text-mainBg">{t("contact.title.2")}</span>
+        <HandClickIcon class="size-6 lg:size-7 text-color inline" />
     </h3>
     <ul class="flex-1 flex flex-col gap-5 text-xl">
-        { Object.values(CONTACT_OPTIONS).map(option => {
-            const { name, url, icon, description, ariaLabel } = option;
-            const Icon = icon;
-            return (
-                <li class="flex flex-col group hover:scale-[1.02] transition">
-                <a
-                    href={url}
-                    aria-label={ariaLabel ?? `Enlace a ${name}` }
-                    title={`Contáctame por ${name}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="focus:outline focus:outline-2 focus:outline-mainBg focus:p-1.5 rounded-2xl"
-                >
-                    <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
-                        <Icon class="size-4 md:size-5 lg:size-6 text-color"/>
-                        {name}.
-                    </h4>
-                    <p class="text-lg opacity-80">{description}</p>
-                </a>
-            </li>
-            )
-        })}
+        {
+            Object.values(CONTACT_OPTIONS).map((option) => {
+                const { name, url, icon, ariaLabel } = option;
+                const Icon = icon;
+                const descKey = url.includes("linkedin")
+                    ? "contact.linkedin.desc"
+                    : url.includes("github")
+                        ? "contact.github.desc"
+                        : "contact.email.desc";
+
+                return (
+                    <li class="flex flex-col group hover:scale-[1.02] transition">
+                        <a
+                            href={url}
+                            aria-label={ariaLabel ?? `Enlace a ${name}`}
+                            title={`${t("contact.title.2")} por ${name}.`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="focus:outline focus:outline-2 focus:outline-mainBg focus:p-1.5 rounded-2xl"
+                        >
+                            <h4 class="flex flex-row w-fit gap-x-2 items-center group-hover:underline group-hover:decoration-mainBg underline-offset-4 transition">
+                                <Icon class="size-4 md:size-5 lg:size-6 text-color" />
+                                {name}.
+                            </h4>
+                            <p class="text-lg opacity-80">{t(descKey)}</p>
+                        </a>
+                    </li>
+                );
+            })
+        }
     </ul>
 </article>
