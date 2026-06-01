@@ -2,7 +2,7 @@
 import '@fontsource/titillium-web';
 import Header from "@components/Header.astro";
 import Footer from '@components/Footer.astro';
-import Analytics from '@vercel/analytics/astro'
+import { Analytics } from '@vercel/analytics/react'
 
 interface Props {
 	title: string;
@@ -34,7 +34,7 @@ const lang = Astro.currentLocale || "es";
 		<Header />
 		<slot />
 		<Footer />
-		<Analytics />
+		<Analytics client:only="react" />
 	</body>
 </html>
 
